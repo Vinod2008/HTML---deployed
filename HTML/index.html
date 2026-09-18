@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Presentation </title>
+
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      background: radial-gradient(circle at 10% 20%, #e8e8fb 0%, #dbe4fd 40%, #f1e6ff 75%, #d8e2fd 100%);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      color: #1e1b4b;
+    }
+
+    .font-code {
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* macOS Window Shadow & Rounded Styles */
+    .mac-dark-editor {
+      background-color: #1c202b;
+      border-radius: 16px;
+      box-shadow: 0 20px 35px -10px rgba(15, 23, 42, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+
+    .mac-browser-window {
+      background-color: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 20px 35px -10px rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      overflow: hidden;
+    }
+
+    /* Code Editor Syntax Highlighting */
+    .syn-doc { color: #818cf8; font-weight: 600; }    /* Lavender for DOCTYPE */
+    .syn-tag { color: #f472b6; font-weight: 600; }    /* Pink for HTML tags */
+    .syn-attr { color: #38bdf8; font-weight: 500; }   /* Sky blue for attributes */
+    .syn-val { color: #fde047; }    /* Yellow for attribute values */
+    .syn-text { color: #ffffff; }   /* White for text content */
+    .syn-indent { padding-left: 1.25rem; }
+
+    /* Glassmorphism Cards & Soft Colors */
+    .card-purple {
+      background: rgba(235, 226, 255, 0.85);
+      border: 1px solid rgba(216, 180, 254, 0.8);
+    }
+    .badge-purple { background: #e9d5ff; color: #6b21a8; }
+
+    .card-blue {
+      background: rgba(220, 238, 255, 0.85);
+      border: 1px solid rgba(186, 230, 253, 0.8);
+    }
+    .badge-blue { background: #bae6fd; color: #0369a1; }
+
+    .card-green {
+      background: rgba(220, 252, 231, 0.85);
+      border: 1px solid rgba(187, 247, 208, 0.8);
+    }
+    .badge-green { background: #bbf7d0; color: #15803d; }
+
+    .card-yellow {
+      background: rgba(254, 243, 199, 0.85);
+      border: 1px solid rgba(253, 230, 138, 0.8);
+    }
+    .badge-yellow { background: #fde68a; color: #92400e; }
+
+    .card-pink {
+      background: rgba(252, 231, 243, 0.85);
+      border: 1px solid rgba(251, 207, 232, 0.8);
+    }
+    .badge-pink { background: #fbcfe8; color: #9d174d; }
+
+    .glass-card {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+  </style>
+</head>
+<body class="flex flex-col justify-between min-h-screen p-4 sm:p-6 md:p-8">
+
+  <header class="w-full max-w-6xl mx-auto mb-6 text-center select-none">
+    <div class="inline-flex items-center gap-3 mb-2">
+      <span class="h-0.5 w-8 sm:w-12 bg-indigo-300 rounded-full"></span>
+      <h1 id="presentation-title" class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+        Basic HTML Structure
+      </h1>
+      <span class="h-0.5 w-8 sm:w-12 bg-indigo-300 rounded-full"></span>
+    </div>
+    <p id="presentation-subtitle" class="text-xs sm:text-sm font-semibold text-indigo-700/80 uppercase tracking-widest">
+    Presentation • Slide 1 of 2
+    </p>
+  </header>
+
+  <main class="w-full max-w-6xl mx-auto flex-1 flex flex-col justify-center my-auto">
+
+    <!-- ================= SLIDE 1: Headings & Paragraphs ================= -->
+    <section id="slide-1" class="slide-view flex flex-col gap-6">
+      
+      <!-- Top Row: Code Editor + Browser Preview -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+        
+        <!-- Left Column: Dark macOS Editor -->
+        <div class="mac-dark-editor flex flex-col h-full min-h-[360px]">
+          <div class="px-4 py-3 bg-[#13161f] flex items-center justify-between border-b border-white/5 select-none">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block"></span>
+            </div>
+            <span class="text-xs font-code text-slate-400 font-medium">Input Terminal</span>
+            <div class="w-12"></div>
+          </div>
+
+          <div class="p-4 sm:p-5 font-code text-xs sm:text-sm leading-relaxed flex-1 flex gap-4 overflow-x-auto text-slate-200">
+            <!-- Line Numbers -->
+            <div class="text-slate-600 select-none text-right pr-3 border-r border-slate-800 font-mono">
+              1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11
+            </div>
+            <!-- Full Document HTML Code -->
+            <div class="space-y-0.5">
+              <div><span class="syn-doc">&lt;!DOCTYPE html&gt;</span></div>
+              <div><span class="syn-tag">&lt;html&gt;</span></div>
+              <div class="syn-indent"><span class="syn-tag">&lt;head&gt;</span></div>
+              <div class="syn-indent pl-8"><span class="syn-tag">&lt;title&gt;</span><span class="syn-text">Headings &amp; Paragraphs</span><span class="syn-tag">&lt;/title&gt;</span></div>
+              <div class="syn-indent"><span class="syn-tag">&lt;/head&gt;</span></div>
+              <div class="syn-indent"><span class="syn-tag">&lt;body&gt;</span></div>
+              <div class="syn-indent pl-8"><span class="syn-tag">&lt;h1&gt;</span><span class="syn-text">Main Heading</span><span class="syn-tag">&lt;/h1&gt;</span></div>
+              <div class="syn-indent pl-8"><span class="syn-tag">&lt;h2&gt;</span><span class="syn-text">Sub Heading</span><span class="syn-tag">&lt;/h2&gt;</span></div>
+              <div class="syn-indent pl-8"><span class="syn-tag">&lt;p&gt;</span><span class="syn-text">This is a paragraph of text on the website.</span><span class="syn-tag">&lt;/p&gt;</span></div>
+              <div class="syn-indent"><span class="syn-tag">&lt;/body&gt;</span></div>
+              <div><span class="syn-tag">&lt;/html&gt;</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Light macOS Browser Window -->
+        <div class="mac-browser-window flex flex-col h-full min-h-[360px]">
+          <div class="px-4 py-3 bg-slate-100 flex items-center gap-3 border-b border-slate-200 select-none">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block"></span>
+            </div>
+            <div class="flex-1 bg-white px-3 py-1 rounded-md border border-slate-200 text-xs text-slate-500 font-code flex items-center justify-center gap-2">
+              <i class="fa-solid fa-globe text-slate-400"></i>
+              <span>Output Terminal</span>
+            </div>
+          </div>
+
+          <!-- Browser Render Output -->
+          <div class="p-6 bg-white flex-1 overflow-y-auto space-y-4 text-slate-900 flex flex-col">
+            <h1 class="text-3xl font-extrabold text-slate-900 border-b border-slate-100 pb-2">Main Heading</h1>
+            <h2 class="text-xl font-bold text-slate-800">Sub Heading</h2>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              This is a paragraph of text on the website.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Row: 3 Pastel Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- Card 1 -->
+        <div class="glass-card card-purple p-4 rounded-2xl flex flex-col gap-2 shadow-sm">
+          <div>
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold font-code badge-purple">
+              &lt;h1&gt; to &lt;h6&gt;
+            </span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+            Defines 6 levels of headings. <code class="font-bold text-purple-900">&lt;h1&gt;</code> is the largest and most important main heading on the page. From &lt;h1&gt; to &lt;h6&gt;, the headings decrease in size. 
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-card card-blue p-4 rounded-2xl flex flex-col gap-2 shadow-sm">
+          <div>
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold font-code badge-blue">
+              &lt;p&gt; Paragraph
+            </span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+            Defines a paragraph of regular body text. Browsers automatically add top and bottom spacing around paragraphs.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-card card-green p-4 rounded-2xl flex flex-col gap-2 shadow-sm">
+          <div>
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold font-code badge-green">
+              Paired Containers
+            </span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+            Both are paired tags requiring an opening tag (e.g., <code class="font-bold text-emerald-900">&lt;p&gt;</code>) and a closing tag (e.g., <code class="font-bold text-emerald-900">&lt;/p&gt;</code>).
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ================= SLIDE 2: Anchor Tag Details ================= -->
+    <section id="slide-2" class="slide-view hidden flex flex-col gap-6">
+      
+      <!-- Top Row: Code Editor + Browser Preview -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+        
+        <!-- Left Column: Dark macOS Editor -->
+        <div class="mac-dark-editor flex flex-col h-full min-h-[360px]">
+          <div class="px-4 py-3 bg-[#13161f] flex items-center justify-between border-b border-white/5 select-none">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block"></span>
+            </div>
+            <span class="text-xs font-code text-slate-400 font-medium">Input Terminal</span>
+            <div class="w-12"></div>
+          </div>
+
+          <div class="p-4 sm:p-5 font-code text-xs sm:text-sm leading-relaxed flex-1 flex gap-4 overflow-x-auto text-slate-200">
+            <!-- Line Numbers -->
+            <div class="text-slate-600 select-none text-right pr-3 border-r border-slate-800 font-mono">
+              1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11
+            </div>
+            <!-- Full Document HTML Code -->
+            <div class="space-y-0.5">
+              <div><span class="syn-doc">&lt;!DOCTYPE html&gt;</span></div>
+              <div><span class="syn-tag">&lt;html&gt;</span></div>
+              <div class="syn-indent"><span class="syn-tag">&lt;head&gt;</span></div>
+              <div class="syn-indent pl-8"><span class="syn-tag">&lt;title&gt;</span><span class="syn-text">Anchor Tag Demo</span><span class="syn-tag">&lt;/title&gt;</span></div>
+              <div class="syn-indent"><span class="syn-tag">&lt;/head&gt;</span></div>
+              <div class="syn-indent"><span class="syn-tag">&lt;body&gt;</span></div>
+              <div class="syn-indent pl-8"><span class="syn-tag">&lt;h1&gt;</span><span class="syn-text">My Portfolio</span><span class="syn-tag">&lt;/h1&gt;</span></div>
+              <div class="syn-indent pl-8"><span class="syn-tag">&lt;p&gt;</span><span class="syn-text">Visit my profile:</span><span class="syn-tag">&lt;/p&gt;</span></div>
+              <div class="syn-indent pl-8">
+                <span class="syn-tag">&lt;a</span> <span class="syn-attr">href</span>=<span class="syn-val">"https://google.com"</span> <span class="syn-attr">target</span>=<span class="syn-val">"_blank"</span> <span class="syn-attr">title</span>=<span class="syn-val">"Go to Google"</span><span class="syn-tag">&gt;</span><span class="syn-text">Open Google</span><span class="syn-tag">&lt;/a&gt;</span>
+              </div>
+              <div class="syn-indent"><span class="syn-tag">&lt;/body&gt;</span></div>
+              <div><span class="syn-tag">&lt;/html&gt;</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Light macOS Browser Window -->
+        <div class="mac-browser-window flex flex-col h-full min-h-[360px]">
+          <div class="px-4 py-3 bg-slate-100 flex items-center gap-3 border-b border-slate-200 select-none">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block"></span>
+            </div>
+            <div class="flex-1 bg-white px-3 py-1 rounded-md border border-slate-200 text-xs text-slate-500 font-code flex items-center justify-center gap-2">
+              <i class="fa-solid fa-globe text-slate-400"></i>
+              <span>Output Terminal</span>
+            </div>
+          </div>
+
+          <!-- Browser Render Output -->
+          <div class="p-6 bg-white flex-1 overflow-y-auto space-y-4 text-slate-900 flex flex-col items-start">
+            <h1 class="text-2xl font-extrabold text-slate-900">My Portfolio</h1>
+            <p class="text-slate-700 text-sm">Visit my profile:</p>
+            <div>
+              <a href="https://google.com" target="_blank" title="Go to Google" class="text-blue-600 hover:text-blue-800 underline font-medium text-base inline-flex items-center gap-1.5">
+                <span>Open Google</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Row: 4 Pastel Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Card 1 -->
+        <div class="glass-card card-purple p-4 rounded-2xl flex flex-col gap-2 shadow-sm">
+          <div>
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold font-code badge-purple">
+              &lt;a&gt; Anchor Tag
+            </span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed font-medium">
+            Used to create hyperlinks. It is a <strong>paired container tag</strong> that requires a closing <code class="font-bold text-purple-900">&lt;/a&gt;</code> tag.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-card card-blue p-4 rounded-2xl flex flex-col gap-2 shadow-sm">
+          <div>
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold font-code badge-blue">
+              href="..." Attribute
+            </span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed font-medium">
+            Stands for <em>Hypertext Reference</em>. Specifies the target web address or URL destination of the link.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-card card-pink p-4 rounded-2xl flex flex-col gap-2 shadow-sm">
+          <div>
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold font-code badge-pink">
+              target="_blank"
+            </span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed font-medium">
+            Instructs the browser to open the target webpage in a brand new browser tab or window. [Note: not a problem if not used]
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="glass-card card-yellow p-4 rounded-2xl flex flex-col gap-2 shadow-sm">
+          <div>
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold font-code badge-yellow">
+              title="..." Attribute
+            </span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed font-medium">
+            Displays extra descriptive text as a floating desktop tooltip when hovering mouse cursor over the link.[Note: not a problem if not used]
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Bottom Slide Navigation Controls -->
+  <footer class="w-full max-w-6xl mx-auto mt-6 flex items-center justify-between select-none">
+    <button id="btn-prev" onclick="prevSlide()" class="px-5 py-2.5 rounded-xl bg-white/80 hover:bg-white text-slate-800 font-semibold text-sm shadow-md hover:shadow-lg border border-white transition-all flex items-center gap-2 opacity-50 cursor-not-allowed" disabled>
+      <i class="fa-solid fa-chevron-left text-xs"></i>
+      <span>Piche</span>
+    </button>
+
+    <div class="flex items-center gap-2">
+      <span id="dot-1" class="w-3 h-3 rounded-full bg-indigo-600 transition-all"></span>
+      <span id="dot-2" class="w-3 h-3 rounded-full bg-slate-300 transition-all"></span>
+    </div>
+
+    <button id="btn-next" onclick="nextSlide()" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+      <span>Aage</span>
+      <i class="fa-solid fa-chevron-right text-xs"></i>
+    </button>
+  </footer>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 2;
+
+    const titles = {
+      1: "— HTML Headings & Paragraphs —",
+      2: "— Anchor Tag <a href='...'> —"
+    };
+
+    function updateSlideUI() {
+      // Hide all slides
+      document.getElementById('slide-1').classList.add('hidden');
+      document.getElementById('slide-2').classList.add('hidden');
+
+      // Show active slide
+      document.getElementById(`slide-${currentSlide}`).classList.remove('hidden');
+
+      // Update header titles
+      document.getElementById('presentation-title').innerHTML = titles[currentSlide];
+      document.getElementById('presentation-subtitle').innerText = `Presentation • Slide ${currentSlide} of ${totalSlides}`;
+
+      // Update buttons and dots
+      const btnPrev = document.getElementById('btn-prev');
+      const btnNext = document.getElementById('btn-next');
+
+      if (currentSlide === 1) {
+        btnPrev.disabled = true;
+        btnPrev.classList.add('opacity-50', 'cursor-not-allowed');
+        document.getElementById('dot-1').className = "w-3 h-3 rounded-full bg-indigo-600 transition-all";
+        document.getElementById('dot-2').className = "w-3 h-3 rounded-full bg-slate-300 transition-all";
+      } else {
+        btnPrev.disabled = false;
+        btnPrev.classList.remove('opacity-50', 'cursor-not-allowed');
+      }
+
+      if (currentSlide === totalSlides) {
+        btnNext.disabled = true;
+        btnNext.classList.add('opacity-50', 'cursor-not-allowed');
+        document.getElementById('dot-1').className = "w-3 h-3 rounded-full bg-slate-300 transition-all";
+        document.getElementById('dot-2').className = "w-3 h-3 rounded-full bg-indigo-600 transition-all";
+      } else {
+        btnNext.disabled = false;
+        btnNext.classList.remove('opacity-50', 'cursor-not-allowed');
+      }
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        currentSlide++;
+        updateSlideUI();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        currentSlide--;
+        updateSlideUI();
+      }
+    }
+
+    // Keyboard Arrow Key Navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+  </script>
+</body>
+</html>
